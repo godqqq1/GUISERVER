@@ -3,8 +3,8 @@ from select import *
 import sys
 from time import ctime
 
-
-HOST = '127.0.0.1'
+who = ["a","b","c"]
+HOST = '192.168.8.102'
 PORT = 80
 BUFSIZE = 1024
 ADDR = (HOST, PORT)
@@ -41,11 +41,11 @@ while connection_list:
             else:
                 data = sock.recv(BUFSIZE)
                 if data:
-                    print('[INFO][%s] Client send Message' % ctime())
+                    print('[INFO][%s] Client send Message %s' % (ctime(),data))
                     for socket_in_list in connection_list:
                         if socket_in_list != serverSocket and socket_in_list != sock:
                             try:
-                                socket_in_list.send('[%s] %s' % (ctime(), data))
+                                socket_in_list.send('123')
                                 print('[INFO][%s] Send Message.' % ctime())
                             except Exception as e:
                                 print(e.message)
