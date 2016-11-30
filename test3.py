@@ -1,7 +1,7 @@
-from tkinter import Tk, Frame, BOTH
-import tkinter
+import Tkinter as tk
 from PIL import Image, ImageTk
-root = tkinter()
+
+root = tk.Tk()
 image2 =Image.open('CoolingTower.png')
 background_image=root.PhotoImage(image2)
 background_label = root.Label(root, image=background_image)
